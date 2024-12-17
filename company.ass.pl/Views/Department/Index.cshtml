@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Departments>
+@{
+  ViewData["Title"] ="Index";
+}
+
+<h1>All Departments</h1>
+    <br />
+    <br />
+<a asp-controller="Department" asp-action="Create" class="btn btn-primary">create department</a>
+    <br />
+
+@if(Model.Count() > 0)
+{
+    <table class="table table-striped table-hover">
+     <thead>
+         <tr>
+        <th>@Html.DisplayNameFor(D => D.code)</th>
+                <th>@Html.DisplayNameFor(D => D.name)</th>
+                <th>@Html.DisplayNameFor(D => D.Dateofcreation)</th>
+        <th>datails</th>
+        <th>update</th>
+        <th>delete</th>
+         </tr>
+       
+     </thead>
+    <tbody>
+        @foreach(var Departments in Model)
+        {
+            <tr>
+                <td>
+                    @Departments.code
+                </td>
+                <td>
+                    @Departments.name
+                </td> 
+                <td>
+                    @Departments.Dateofcreation
+                </td>
+                    <partial name="_partailView" model="@Departments.id.ToString()" />
+
+            </tr>
+        }
+    </tbody>
+    </table>
+}
+else
+{
+   <div>
+       <p>
+           there ar not department
+       </p>
+   </div>
+}
+
+

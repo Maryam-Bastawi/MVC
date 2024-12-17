@@ -1,0 +1,34 @@
+﻿@using company.ass.pl.ViewModels
+
+@model RolesViewModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<h1 class="py-3">Update Roles</h1>
+
+<form asp-action="Update" enctype="multipart/form-data">
+   
+    <partial name="ParitalView/updatecreateView" model="@Model" />
+    <br />
+    
+    <a asp-action="AddOrRemoveUser" asp-route-RoleId="@Model.Id" class="btn btn-success">Add Or Remove User</a>
+
+
+    <input type="submit" value="Edit" class="btn btn-warning text-white" />
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+
+</form>
+@section ValidationSection
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+

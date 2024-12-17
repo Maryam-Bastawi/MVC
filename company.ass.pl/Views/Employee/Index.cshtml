@@ -1,0 +1,116 @@
+﻿@using company.ass.pl.ViewModels
+@model IEnumerable<EmployeeViewModel>
+@{
+    ViewData["Title"] = "Index";
+    // string m01 = ViewData["message"] as string;required casting
+    // string m02 = ViewBag.send ;dont required casting
+}
+
+<h1>All Employee</h1>
+<br />
+<br />
+
+<form asp-action="Index">
+    <div class="row m-5">
+        <div class="col-8"> <input type="text" name="searchinput" id="searchinput" placeholder="search by name.." class="form-control" /></div>
+        <div class="col-4"><input type="submit" value="search" class="btn btn-success" /></div>
+    </div>
+</form>
+<br />
+<a asp-action="Create" class="btn btn-primary">create employee</a>
+<br />
+<br />
+@* <div class="alert alert-danger">
+    <p>@ViewData["message"]</p>
+</div>
+<div class="alert alert-success">
+    <p>@TempData["message"]</p>
+</div>
+<div class="alert alert-warning">
+    <!-----override on viewdata-->
+    <p>@ViewBag.message</p> 
+</div>
+<div class="alert alert-warning">
+    <!-----!=override on viewdata-->  
+    <p>@ViewBag.send</p>
+    </div> *@
+@if (!string.IsNullOrEmpty(@TempData["message"] as string))
+{
+    <div class="alert alert-success">
+        <p>@TempData["message"]</p>
+    </div>
+}
+
+
+
+@if(Model.Count() > 0)
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(e => e.Image)</th>
+                <th>@Html.DisplayNameFor(e => e.name)</th>
+                <th>@Html.DisplayNameFor(e => e.age)</th>
+                <th>@Html.DisplayNameFor(e => e.address)</th>
+                <th>@Html.DisplayNameFor(e => e.salary)</th>
+                <th>@Html.DisplayNameFor(e => e.Email)</th>
+                <th>@Html.DisplayNameFor(e => e.workfor)</th>
+                <th>@Html.DisplayNameFor(e => e.PhoneNumber)</th>
+                <th>@Html.DisplayNameFor(e => e.IsActive)</th>
+                <th>@Html.DisplayNameFor(e => e.HiringDate)</th>
+                <th>datails</th>
+                <th>update</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/files/img/@employee.ImgName" width="75" class="img-fluid rounded-circle" />
+
+                    </td>
+                    <td>
+                        @employee.name
+                    </td>
+                    <td>
+                        @employee.age
+                    </td>
+                    <td>
+                        @employee.address
+                    </td>
+                    <td>
+                        @employee.salary
+                    </td>
+                    <td>
+                        @employee.Email
+                    </td>
+                    <td>
+                        @employee?.workfor?.name
+                    </td>
+                    <td>
+                        @employee.PhoneNumber
+                    </td>
+                    <td>
+                        @employee.IsActive
+                    </td>
+                    <td>
+                        @employee.HiringDate
+                    </td>
+                    <partial name="_partailView" model="@employee.id.ToString()" />
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+}
+else
+{
+    <div class="alert-danger">
+        <p>
+            there are not Employee
+        </p>
+    </div>
+}
+

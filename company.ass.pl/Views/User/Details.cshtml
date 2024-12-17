@@ -1,0 +1,19 @@
+﻿@using company.ass.pl.ViewModels
+
+@model UserViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="py-3">User Details</h1>
+<div>
+
+    <partial name="ParitalView/DetailsDeleteUser" />
+
+    <div class="py-3">
+        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+        <a asp-action="Index" class="btn btn-light">Back To List</a>
+    </div>
+</div>
+

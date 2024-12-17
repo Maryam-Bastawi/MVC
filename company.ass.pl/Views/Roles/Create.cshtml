@@ -1,0 +1,24 @@
+﻿@using company.ass.pl.ViewModels
+@model RolesViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<h1>Create Roles</h1>
+
+<br />
+<br />
+<form asp-controller="Roles" asp-action="Create" enctype="multipart/form-data">
+    <partial name="ParitalView/updatecreateView"  />
+ 
+    <br />
+    <br />
+    <input type="submit"  value="Create" class="btn btn-primary" />
+    <a asp-controller="Roles" asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+@section validationsection {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>}

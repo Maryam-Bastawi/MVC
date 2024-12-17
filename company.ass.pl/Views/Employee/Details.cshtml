@@ -1,0 +1,20 @@
+﻿@using company.ass.pl.ViewModels
+@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h1>Details</h1>
+
+<br />
+<br />
+
+<partial name="partailview/DeltalsDeleteview" model="Model" />
+
+
+    <br />
+    <br />
+<a  asp-route-id="@Model.id" asp-action="update" class="btn btn-light">update</a>
+    <a asp-controller="Employee" asp-action="Index" class="btn btn-light">Back To List</a>

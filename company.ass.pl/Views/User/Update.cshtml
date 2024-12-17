@@ -1,0 +1,48 @@
+﻿@using company.ass.pl.ViewModels
+
+@model UserViewModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool Error = ViewData.ModelState.Values.Any(V => V.Errors.Count > 0);
+}
+
+<h1 class="py-3">Update User</h1>
+
+<form asp-action="Update" enctype="multipart/form-data">
+
+    @if (Error)
+    {
+        <div asp-validation-summary="All" class="alert alert-danger"></div>
+    }
+
+    <div class="from-group py-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="from-group py-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="from-group py-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="py-3">
+        <input type="submit" value="Update" class="btn btn-warning text-white" />
+        <a asp-action="Index" class="btn btn-light">Back To List</a>
+    </div>
+
+</form>
+@section ValidationSection
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

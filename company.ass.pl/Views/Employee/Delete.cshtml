@@ -1,0 +1,17 @@
+﻿@using company.ass.pl.ViewModels
+@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete employee</h1>
+
+<partial name="partailview/DeltalsDeleteview" model="Model" />
+
+<input asp-for="ImgName" hidden />
+<br />
+<br />
+<a asp-controller="Employee" asp-action="Delete" class="btn btn-light">Delete</a>
+<a asp-controller="Employee" asp-action="Index" class="btn btn-light">Back To List</a>
+
+

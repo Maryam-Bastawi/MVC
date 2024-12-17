@@ -1,0 +1,27 @@
+﻿@model Departments
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+<br />
+<br />
+<div class="form-group">
+    <label asp-for="code" class="col-form-label"></label>
+    <input asp-for="code" readonly type="number" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="name" class="col-form-label"></label>
+    <input asp-for="name" readonly type="text" class="form-control" />
+
+</div>
+<div class="form-group">
+    <label asp-for="Dateofcreation" class="col-form-label"></label>
+    <input asp-for="Dateofcreation" readonly class="form-control" />
+
+</div>
+<br />
+<br />
+<a asp-controller="Department" asp-route-id="@Model.id" asp-action="update" class="btn btn-warning">Edit</a>
+<a asp-controller="Department" asp-action="Index" class="btn btn-outline-info">Back To List</a>

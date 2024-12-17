@@ -1,0 +1,29 @@
+﻿@using company.ass.pl.ViewModels
+@model SignInViewModel
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_AuthLayout1.cshtml";
+}
+
+
+<div class="main-agileinfo">
+	<div asp-validation-summary="All" class="bg-danger"></div>
+	<div class="agileits-top">
+		<form asp-action="SignIn" method="post">
+			
+
+			<input asp-for="Email" class="form-control" placeholder="Email">
+			<input asp-for="Password" class="form-control" placeholder="Password">
+			<div class="wthree-text">
+				<label class="anim">
+					<input type="checkbox" asp-for="RememberMe" class="checkbox">
+					<span>Remember Me</span>
+				</label>
+				<div class="clear"> </div>
+			</div>
+			<input type="submit" value="SIGNIn">
+		</form>
+		<p>Don't have an Account? <a asp-action="SignUp"> SignUp Now!</a></p>
+		<p><a asp-action="ForgetPassword"> Forget Password?</a></p>
+	</div>
+</div>

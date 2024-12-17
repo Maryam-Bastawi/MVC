@@ -1,0 +1,18 @@
+﻿@using company.ass.pl.ViewModels
+
+@model RolesViewModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="py-3">Delete Roles Page </h1>
+<form asp-action="Delete">
+   
+    <partial name="ParitalView/DetailsDeleteRoles" />
+
+    <div class="py-3">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-light">Back To List</a>
+    </div>
+</form>
